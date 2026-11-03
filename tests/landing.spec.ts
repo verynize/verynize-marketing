@@ -8,12 +8,22 @@ test("SSR includes meaningful content and product boundaries", async ({
   expect(html).toContain("Your canvas. Your agents.");
   expect(html).toContain("no notarized public installer");
   expect(html).toContain("not been deployed to production");
-  expect(html).toContain("New repository chats get their own Git worktree when the repository has a commit");
+  expect(html).toContain(
+    "New repository chats get their own Git worktree when the repository has a commit",
+  );
   expect(html).toContain(
     "One real reply-only turn has passed through each integrated runtime",
   );
   expect(html).not.toContain("still awaits a real model-turn validation");
   expect(html).toContain("The app is free. Always.");
+  expect(html).toContain("31 named design styles");
+  expect(html).toContain("versioned static apps with rollback");
+  expect(html).toContain(
+    "Real Figma OAuth and clipboard data remain unverified",
+  );
+  expect(html).not.toContain(
+    "Publishing currently means a design snapshot, not a deployed application",
+  );
 });
 test("perspectives, FAQ, and source CTA work without browser errors", async ({
   page,

@@ -62,8 +62,8 @@ function RoadmapPage() {
             exploring next.
           </p>
           <div className="roadmap-date">
-            Implementation evidence: October 29, 2026 · Roadmap reviewed:
-            October 29, 2026
+            Product v0.17.0 · Evidence: October 31, 2026 · Reviewed: November 1,
+            2026
           </div>
         </section>
         <section className="roadmap-key" aria-label="What the statuses mean">
@@ -160,9 +160,10 @@ function RoadmapPage() {
             >
               Wonder roadmap <ArrowUpRight size={12} />
             </a>{" "}
-            and now tracks our canvas, Code workspace, agent runtime, and
-            implementation acceptance notes. Verynize is independently authored;
-            this page does not claim full Wonder parity or affiliation.
+            and now tracks our canvas, preview workflow, design guidance,
+            agents, and locally exercised cloud capabilities. Verynize is
+            independently authored; this page does not claim full Wonder parity
+            or affiliation.
           </p>
         </aside>
       </main>

@@ -314,9 +314,9 @@ function Home() {
               <span className="feature-number">02 / YOUR AGENTS</span>
               <h3>A partner for the next move.</h3>
               <p>
-                Give Claude or Codex your canvas selection and project context.
-                Follow streaming output, choose an access level, and queue or
-                stop tasks while you stay in control.
+                Give Claude or Codex your canvas selection, project context, and
+                a chosen design style. Follow streaming output, choose an access
+                level, and queue or stop tasks while you stay in control.
               </p>
             </article>
             <article>
@@ -356,7 +356,7 @@ function Home() {
               ],
               [
                 "A little more dimension",
-                "Add gradients, masks, shadows, and independently authored animated WebGL shaders.",
+                "Add gradients, advanced masks, shadows, and independently authored WebGL shaders. Apply Shader mode beneath a layer’s content.",
               ],
               [
                 "A workspace for the code, too",
@@ -368,11 +368,19 @@ function Home() {
               ],
               [
                 "Your running app, in view",
-                "Start a local dev server, preview responsive layouts, and capture supported content into editable layers. Agent shell actions use access-level approval controls.",
+                "Start a local dev server and move between Navigate, Edit, and Capture modes. Stage text edits, capture supported elements into layers, and attach them to chat.",
+              ],
+              [
+                "A direction to build on",
+                "Choose from 31 named design styles and twelve styled starter briefs. Saved design preferences give your agent context to carry into the next chat.",
+              ],
+              [
+                "Bring more into the canvas",
+                "Import supported HTML and JSX with external stylesheets, or capture a URL with images and embedded fonts. Unsupported browser features are reported as limitations.",
               ],
               [
                 "A bridge to your tools",
-                "Connect your agent through 49 MCP tools, including 15 desktop-only shell tools. Edit designs, work with saved documents, and operate local project previews.",
+                "Connect agents to the live canvas or saved documents over MCP. Desktop shell tools can operate previews and project commands; an authenticated cloud endpoint is tested locally.",
               ],
             ].map(([title, text]) => (
               <article key={title}>
@@ -414,7 +422,11 @@ function Home() {
               <br />
               Deploy to your own cloud? Verynize is still free.
             </p>
-            <p>Your hosting and AI providers may charge for their services.</p>
+            <p>
+              Original Verynize code is MIT-licensed; third-party materials keep
+              their own licenses. Your hosting and AI providers may charge for
+              their services.
+            </p>
           </div>
         </section>
         <section className="section faq" id="questions">
@@ -443,7 +455,7 @@ function Home() {
               ],
               [
                 "Can I use Verynize today?",
-                "You can run the macOS app from the product source. A locally signed app build has been tested, but there is no notarized public installer available here yet.",
+                "You can run the macOS app from the product source. Original Verynize code is MIT-licensed. An older locally signed app build was tested, but the package has not been rebuilt for all recent changes and there is no notarized public installer available here yet.",
               ],
               [
                 "Do I need an AI subscription?",
@@ -458,12 +470,24 @@ function Home() {
                 "Rewind can fork a provider session at a kept turn, with a transcript fallback. Second opinion sends the latest answer and diff to the other provider for read-only review. Both controls are implemented, but neither has been exercised live from inside the app yet.",
               ],
               [
+                "How do styles and saved preferences guide the agent?",
+                "The composer offers 31 named styles and twelve styled starter briefs, backed by design guidance and saved preferences. Style checks cover structure, contrast, and fonts; they do not guarantee the quality of generated designs. Preference changes have approval controls in Claude, while allowed Codex chats still rely on a guidance rule that has not been live-verified.",
+              ],
+              [
+                "Can I generate images as well as illustrations?",
+                "Agent-authored SVG illustrations, configurable image-provider adapters, and smooth bitmap-to-vector tracing are implemented. Real image-provider APIs still need live-credential validation. The agent design harness itself has no image-generation tool; it uses stock photos, SVG, shaders, and gradients.",
+              ],
+              [
                 "Can I collaborate or publish a website?",
-                "Private rooms, cursor presence, conflict choices, and frozen read-only snapshots have been tested locally. The collaboration service has not been deployed to production. Publishing currently means a design snapshot, not a deployed application.",
+                "Accounts, organization workspaces, room roles, shared cursors, and operation-based collaboration are implemented and tested locally. Publishing supports frozen design snapshots and versioned static apps with rollback. The collaboration service has not been deployed to production; live email, sign-in, and a separate apps domain remain unverified. Published apps are sandboxed without cookies or localStorage.",
+              ],
+              [
+                "Can I keep working on a shared file offline?",
+                "Previously opened cloud files can keep edits in a persistent outbox and send them when the desktop reconnects, including after an app restart. This was tested in Electron; the shared web implementation has not been separately exercised. Shared-image display while offline depends on the browser cache.",
               ],
               [
                 "Can I bring in Figma or existing websites?",
-                "Supported Figma REST imports are implemented, with live authenticated import still unverified. Local app capture supports a bounded set of visible content and styles. Full Figma fidelity and arbitrary website round trips are not supported.",
+                "Figma REST import, clipboard decoding, .fig import, and OAuth are implemented against local fixtures. Real Figma OAuth and clipboard data remain unverified; encrypted .pen files are refused. URL capture supports cross-origin images, embedded fonts, region selection, and source mapping. Shadow DOM, iframes, pseudo-elements, animation keyframes, and off-viewport content remain outside capture support.",
               ],
             ].map(([q, a]) => (
               <details key={q}>
