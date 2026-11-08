@@ -82,6 +82,6 @@ test("roadmap fits mobile, tablet, and desktop with usable links", async ({
     .getByRole("link", { name: "Roadmap", exact: true })
     .click();
   await expect(page).toHaveURL(/\/roadmap$/);
-  await page.getByRole("link", { name: "Start creating", exact: true }).click();
-  await expect(page).toHaveURL(/\/#start$/);
+  await page.getByRole("link", { name: "Download ALPHA", exact: true }).click();
+  await expect(page).toHaveURL(/\/download$/);
 });

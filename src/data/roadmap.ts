@@ -197,7 +197,7 @@ export const roadmap: RoadmapGroup[] = [
         title: "Reopen cloud files and work offline",
         status: "partial",
         description:
-          "Previously opened rooms can be edited offline and replay unacknowledged operations after reconnect or restart. Desktop flows are exercised; the shared web implementation has only been exercised in Electron, and images may depend on cache.",
+          "Signed-in cloud edits remain in memory until acknowledged; a new file created offline can be lost on reload. Anonymous capability rooms retain a persistent outbox. Save important work locally; offline images depend on cache.",
       },
       {
         title: "Accounts and organization workspaces",
@@ -275,7 +275,7 @@ export const roadmap: RoadmapGroup[] = [
         title: "Private files and public snapshots",
         status: "partial",
         description:
-          "Keep room files private or publish frozen snapshots with access checks and revocation. Signed-in cloud files reopen connected and belong to workspaces; the service has not been deployed to production.",
+          "Keep room files private or publish frozen snapshots with access checks and revocation. Signed-in cloud files reopen connected and belong to workspaces; production readiness remains unverified in the acceptance record.",
       },
       {
         title: "Granular sharing permissions",

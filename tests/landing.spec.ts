@@ -7,7 +7,7 @@ test("SSR includes meaningful content and product boundaries", async ({
   const html = await response.text();
   expect(html).toContain("Your canvas. Your agents.");
   expect(html).toContain("no notarized public installer");
-  expect(html).toContain("not been deployed to production");
+  expect(html).toContain("Production readiness, live email");
   expect(html).toContain(
     "New repository chats get their own Git worktree when the repository has a commit",
   );
@@ -46,10 +46,10 @@ test("perspectives, FAQ, and source CTA work without browser errors", async ({
     .getByText("Can I collaborate or publish a website?", { exact: true })
     .click();
   await expect(
-    page.getByText(/The collaboration service has not been deployed/),
+    page.getByText(/Production readiness, live email/),
   ).toBeVisible();
-  await page.getByRole("link", { name: "Make something better" }).click();
-  await expect(page).toHaveURL(/#start$/);
+  await expect(page.getByRole("link", { name: "Download ALPHA" }).first()).toHaveAttribute("href", "/download");
+  await page.locator("#start").scrollIntoViewIfNeeded();
   await page.getByRole("button", { name: "Copy commands" }).click();
   await expect(page.getByRole("button", { name: "Copied!" })).toBeVisible();
   expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(

@@ -5,7 +5,9 @@ Reviewed **2026-11-01** against Verynize product **0.17.0**, commit
 
 This is a source and documentation audit, not a fresh run of the product test suite.
 Marketing build and browser tests validate the website, not product capabilities.
-Uncommitted product changes and sibling experimental checkouts are outside this snapshot.
+Uncommitted product changes and sibling experimental checkouts are outside that historical snapshot.
+
+Distribution copy was refreshed on **2026-11-08** against product **0.18.0**, commit `983f330`, and the accompanying ALPHA workflow changes. This update adds `/download` metadata lookup without claiming a release is already published, narrows offline persistence claims using current acceptance notes, and clarifies the separate Codex sign-in. The rest of the feature inventory retains the older evidence scope.
 
 ## Sources and precedence
 
@@ -36,11 +38,11 @@ When sources conflict, prefer current implementation and the most recent specifi
 | Code import/export | External stylesheets, cascade, CSS variables, and HTML/JSX/CSS import/export have schema-coverage round-trip tests. | Oct30 codec audit. This concerns supported document data, not arbitrary executable application code; scripts are not executed, and unsupported CSS is reported as warnings. |
 | Git and project reuse | Changes review, confirmed discard, commit/non-force push, global search, template packs, shared components, and history-preserving moves are implemented. | Acceptance notes and Oct30 agents/workspace audit. Real GitHub PR creation remains unverified because `gh` is stubbed in relevant tests. A template gallery is not a public marketplace. |
 | Accounts and workspaces | Accounts, organization invitations, roles, workspace switching, onboarding, profiles, and member settings are implemented. | Better Auth phases 0–4 and Oct30 cloud audit. Email delivery, live D1, production login, and native Touch ID/iCloud passkeys remain unverified. Do not present a live signup service. |
-| Shared and offline files | Server-sequenced operations, collaborator-safe undo, persistent cloud-file records, and a restart-persistent offline outbox are implemented. | Oct30 cloud audit and `tests/cloud-files-desktop.mjs`. A room must have been opened on the device before offline editing; shared web code was exercised in Electron. Merging is not peer-to-peer CRDT. |
+| Shared and offline files | Signed-in cloud records retain references; pending edits remain in memory until acknowledged. Anonymous capability rooms retain a persistent outbox. | Current acceptance notes, Better Auth/cloud-files section and remaining gaps: a new signed-in file made offline can be lost on reload. Do not promise restart-persistent signed-in editing. Shared-image display depends on cache. |
 | Publishing | Frozen snapshots and versioned static apps with rollback are implemented. | Oct30 cloud audit supersedes the old snapshots-only claim. Apps are sandboxed without cookies/localStorage; a separate production app domain and real production publishing remain unverified. No arbitrary backend deployment is promised. |
 | Shared images | Room images upload through signed URLs with content checks and per-room deduplication; raster exports inline them. | Room-assets acceptance section; local Miniflare R2/two-client tests. No real R2 bucket used. Signed image URLs are not revoked by membership removal/rotation; offline images depend on cache, and MCP screenshots/SVG export do not inline room images. |
 | Self-hosting | Cloudflare, Node/VPS/Docker, and Vercel runtime paths are implemented and documented. | Deployment/runtime docs describe shared cloud scenarios: Node SQLite, Vercel Redis/libSQL, and Cloudflare services. These are deployment options, not proof of deployed production services. |
-| Distribution and licensing | Run the macOS application from source; original code and documentation use MIT. | Product package, LICENSE, and third-party notices. Third-party material keeps its own licenses. Recorded packaged-app validation is older; packaging was not rerun after adding ripgrep, and no notarized public installer is advertised. |
+| Distribution and licensing | `/download` lists actual published desktop ALPHA ZIP/checksum assets for Apple silicon or Intel; source setup remains available. Original code and documentation use MIT. | Product ALPHA workflow contract and public GitHub release metadata. No binary availability is assumed before publication. ALPHA builds use ad-hoc signing and manual updates; no Apple notarization is claimed. Third-party material retains its own licenses. |
 | Free app | The application remains always free; paid offerings are limited to optional cloud and AI services; self-hosting has no Verynize license/subscription fee. | Explicit owner policy. Provider infrastructure and AI usage fees remain separate. No hosted service launch or paid plan is implied. |
 
 ## Known source conflicts
