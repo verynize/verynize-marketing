@@ -1552,3 +1552,20 @@ footer > a:last-child {
     font-size: 24px;
   }
 }
+
+.download-main { padding-bottom: 70px; }
+.download-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.download-status { color: var(--muted); line-height: 1.7; margin: 0 0 22px; }
+.download-status button { margin-left: 12px; border: 1px solid var(--line); border-radius: 7px; padding: 6px 12px; background: transparent; }
+.download-card h2 { font-size: 28px; margin: 18px 0 10px; }
+.download-card .button { margin: 20px 0 12px; }
+.download-meta { font-size: 12px; }
+.download-meta a, .download-links a, .download-help a { text-decoration: underline; text-underline-offset: 4px; }
+.download-unavailable { margin-top: 28px; color: var(--muted); }
+.download-links { display: flex; flex-wrap: wrap; gap: 25px; padding: 25px 0; font-size: 13px; }
+.download-help { max-width: 760px; margin-top: 30px; line-height: 1.8; }
+.download-help h2 { font-size: 27px; letter-spacing: -1px; }
+.download-help ol { padding-left: 22px; }
+.download-help li { padding: 5px 0 5px 8px; }
+.download-help p { color: var(--muted); }
+@media (max-width: 560px) { .download-grid { grid-template-columns: 1fr; } .download-status, .download-help { font-size: 13px; } }

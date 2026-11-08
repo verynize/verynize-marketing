@@ -26,7 +26,7 @@ Tests cover SSR content, perspective switching, FAQ expansion, mobile navigation
 
 Copy is based on product **0.17.0** at commit `e14b81b79aefe7cc94bfb34128670f123d6caba5`, including `../verynize-product/README.md`, the acceptance notes updated 2026-10-31, and current code/test evidence reviewed on 2026-11-01. See [the product evidence ledger](docs/product-evidence.md) for supported claims, source conflicts, and validation limits. The product workspace is an original CSS illustration, explicitly labeled as illustrative. It is not a screenshot or evidence of a successful agent task.
 
-The primary CTA opens source-checkout instructions. No public download, paid plan prices, signup, hosted collaboration, or production service is implied. Review the FAQ alongside the implementation status before changing claims. Product source is not bundled into the website. Fonts are bundled locally with their license.
+The primary CTA opens `/download`. It checks the public GitHub API for published desktop ALPHA prereleases from `verynize/verynize-product`, and shows only uploaded ZIP assets with matching checksums. Before a release exists, or when GitHub is unavailable, the page offers release/source links instead of invented download URLs. No hosted-service readiness is implied. Review the FAQ alongside the implementation status before changing claims. Product source is not bundled into the website. Fonts are bundled locally with their license.
 
 ## Pricing commitment
 
@@ -34,7 +34,7 @@ The product owner confirmed that the Verynize app will always be free. Any futur
 
 ## Repository
 
-This is the marketing Git submodule of the Verynize workspace. Its configured origin is `https://github.com/AdamAbd/verynize-marketing.git`. Commit changes here before updating the submodule pointer in the parent repository. Publishing the Git repository and deploying the website are separate actions.
+This is the marketing Git submodule of the Verynize workspace. Its configured origin is `https://github.com/verynize/verynize-marketing.git`. Commit changes here before updating the submodule pointer in the parent repository. Publishing the Git repository and deploying the website are separate actions.
 
 ## Roadmap
 
@@ -61,3 +61,9 @@ npm run deploy        # build and cf deploy --prebuilt
 ```
 
 Deploying this marketing site does not establish production readiness of the product's collaboration or other hosted features.
+
+## Desktop ALPHA downloads
+
+The product desktop workflow publishes prereleases tagged `desktop-v<version>-alpha.<N>`. Assets are `Verynize-<version>-macos-arm64.zip` and/or `Verynize-<version>-macos-x64.zip`, each with a `.sha256` companion. `/download` checks up to 100 recent releases in the browser and selects the newest published matching ALPHA with valid uploaded assets. It does not use GitHub's `/releases/latest`, which excludes prereleases. No token or secret is sent to the browser. GitHub rate limits and network errors show a retry action and a releases-page fallback; publishing a product release does not require rebuilding marketing.
+
+Both architecture links are explicit. Ad-hoc signing, first-launch approval, manual updates, and the current offline cloud-file limitation are disclosed. The release listing and link selection are covered in `tests/download.spec.ts`; the tests use controlled GitHub responses, not live downloads.

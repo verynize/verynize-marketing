@@ -220,9 +220,9 @@ function Home() {
           <a href="#questions" onClick={() => setMenu(false)}>
             Good to know
           </a>
-          <a className="nav-cta" href="#start" onClick={() => setMenu(false)}>
-            Start creating <ArrowUpRight size={15} />
-          </a>
+          <Link className="nav-cta" to="/download" onClick={() => setMenu(false)}>
+            Download ALPHA <ArrowUpRight size={15} />
+          </Link>
         </nav>
       </header>
       <main id="main">
@@ -242,9 +242,9 @@ function Home() {
             and Codex close at hand.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#start">
-              Make something better <ArrowUpRight size={17} />
-            </a>
+            <Link className="button primary" to="/download">
+              Download ALPHA <ArrowUpRight size={17} />
+            </Link>
             <a className="text-link" href="#workspace">
               Explore the workspace <ArrowDown />
             </a>
@@ -451,15 +451,15 @@ function Home() {
               ],
               [
                 "Is self-hosting free too?",
-                "Yes. Deploying Verynize to your own cloud remains free, with no Verynize license or subscription fee. You only cover any infrastructure or AI usage charged by your chosen providers. The collaboration service has been tested locally; no production-hosted service is available here yet.",
+                "Yes. Deploying Verynize to your own cloud remains free, with no Verynize license or subscription fee. You only cover any infrastructure or AI usage charged by your chosen providers. The collaboration service has been tested locally; production readiness is not established by those tests.",
               ],
               [
                 "Can I use Verynize today?",
-                "You can run the macOS app from the product source. Original Verynize code is MIT-licensed. An older locally signed app build was tested, but the package has not been rebuilt for all recent changes and there is no notarized public installer available here yet.",
+                "Check the Download page for published macOS ALPHA builds, or run from the product source. Original Verynize code is MIT-licensed. ALPHA builds are locally signed; there is no notarized public installer.",
               ],
               [
                 "Do I need an AI subscription?",
-                "Canvas editing works independently of an agent. Agent tasks use your installed Claude or Codex and its existing account; provider access and usage charges are managed by that provider. One real reply-only turn has passed through each integrated runtime, including event streaming and MCP tool discovery. Results on your own coding tasks still depend on the provider and the task.",
+                "Canvas editing works independently of an agent. Agent tasks use your installed Claude or Codex. Connect Codex with Sign in with ChatGPT inside Verynize; this connection is separate from its terminal login. Provider access and usage charges are managed by that provider. One real reply-only turn has passed through each integrated runtime, including event streaming and MCP tool discovery. Results on your own coding tasks still depend on the provider and the task.",
               ],
               [
                 "How does the Design-to-Code workflow work?",
@@ -479,11 +479,11 @@ function Home() {
               ],
               [
                 "Can I collaborate or publish a website?",
-                "Accounts, organization workspaces, room roles, shared cursors, and operation-based collaboration are implemented and tested locally. Publishing supports frozen design snapshots and versioned static apps with rollback. The collaboration service has not been deployed to production; live email, sign-in, and a separate apps domain remain unverified. Published apps are sandboxed without cookies or localStorage.",
+                "Accounts, organization workspaces, room roles, shared cursors, and operation-based collaboration are implemented and tested locally. Publishing supports frozen design snapshots and versioned static apps with rollback. Production readiness, live email, sign-in, and a separate apps domain remain unverified in the product acceptance record. Published apps are sandboxed without cookies or localStorage.",
               ],
               [
                 "Can I keep working on a shared file offline?",
-                "Previously opened cloud files can keep edits in a persistent outbox and send them when the desktop reconnects, including after an app restart. This was tested in Electron; the shared web implementation has not been separately exercised. Shared-image display while offline depends on the browser cache.",
+                "Signed-in cloud edits wait in memory until the server acknowledges them. A new cloud file made offline can be lost on reload. Keep a local .verynize.json backup and wait for saves before closing. Anonymous capability rooms retain a persistent outbox; shared-image display offline depends on the browser cache.",
               ],
               [
                 "Can I bring in Figma or existing websites?",
