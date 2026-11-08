@@ -43,9 +43,9 @@ function RoadmapPage() {
           <Link to="/roadmap" aria-current="page">
             Roadmap
           </Link>
-          <a className="nav-cta" href="/#start">
-            Start creating <ArrowUpRight size={15} />
-          </a>
+          <Link className="nav-cta" to="/download">
+            Download ALPHA <ArrowUpRight size={15} />
+          </Link>
         </nav>
       </header>
       <main id="main" className="roadmap-main">
